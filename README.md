@@ -35,11 +35,12 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 - `_Generic_Device_Autoinit_68k`
 
 ## 💾 Example Libraries
-- `lib_Blanker`
-- `lib_Gadget`
+- `lib_Blanker` — Example blanker library
+- `lib_Gadget` — Example gadget class library
 
 ## 🖨️ Example Devices
-- `dev_Printer`
-- `dev_Trackdisk`
+- `dev_Printer` — Example printer device
+- `dev_SANA2` — Example Ethernet device
+- `dev_Trackdisk` — Example disk device
 
 ---
