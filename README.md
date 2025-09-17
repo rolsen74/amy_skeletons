@@ -16,6 +16,8 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 
 — Rene W. Olsen (17-Sep-2025)
 
+**License:** [Unlicense](LICENSE) — Public Domain
+
 ---
 
 ## 🧩 Generic Libraries
@@ -41,5 +43,3 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 - `dev_Trackdisk`
 
 ---
-
-**License:** [Unlicense](LICENSE) — Public Domain
