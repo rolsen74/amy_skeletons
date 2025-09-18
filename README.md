@@ -36,6 +36,7 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 
 ## 💾 Example Libraries
 - `lib_Blanker` — Example blanker library
+- `lib_Docky` — Example AmiDock docky
 - `lib_Gadget` — Example gadget class library
 
 ## 🖨️ Example Devices
