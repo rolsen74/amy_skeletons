@@ -76,8 +76,8 @@ static USED const struct Resident dev_res =
 /* rt_EndSkip	*/ (PTR)	( & dev_res + 1 ),
 /* rt_Flags		*/			RTF_NATIVE|RTF_COLDSTART,
 /* rt_Version	*/			VERSION,
-/* rt_Type		*/			0,
-/* rt_Pri		*/			1,
+/* rt_Type		*/			NT_DEVICE,
+/* rt_Pri		*/			0,
 /* rt_Name		*/ (STR)	DEVNAME,
 /* rt_IdString	*/ (STR)	VSTRING,
 /* rt_Init		*/ (PTR)	_manager_Init
