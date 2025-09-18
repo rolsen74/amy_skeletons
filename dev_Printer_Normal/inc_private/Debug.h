@@ -8,7 +8,7 @@
 // --
 
 #ifndef INC_PRIVATE_ALL_H
-#error Include "inc_privatee/All.h" first
+#error Include "inc_private/All.h" first
 #endif
 
 #ifndef INC_PRIVATE_DEBUG_H
@@ -17,10 +17,7 @@
 // ---
 // Note:
 //
-//  Small feature, you always need minimum 1 arg
-//  even if you don't need it.. too lazy to fix
-//
-//  MYERROR( "Print Error Msg", 0 );
+//  MYERROR( "Print Error Msg" );
 //  MYINFO(  "Print Into Msg %ld", -11 );
 //  MYDEBUG( "Print Debug Msg %lu", +11 );
 //
@@ -32,19 +29,19 @@
 void VARARGS68K _MYDEBUG( U32 lvl, STR fmt, ... );
 
 #ifdef DO_ERROR
-#define MYERROR( fmt, ... )	_MYDEBUG( 2, fmt, __VA_ARGS__ )
+#define MYERROR( fmt, ... )	_MYDEBUG( 2, fmt, ##__VA_ARGS__ )
 #else
 #define MYERROR( fmt, ... )	((void)0)
 #endif
 
 #ifdef DO_INFO
-#define MYINFO( fmt, ... )		_MYDEBUG( 1, fmt, __VA_ARGS__ )
+#define MYINFO( fmt, ... )		_MYDEBUG( 1, fmt, ##__VA_ARGS__ )
 #else
 #define MYINFO( fmt, ... )		((void)0)
 #endif
 
 #ifdef DO_DEBUG
-#define MYDEBUG( fmt, ... )	_MYDEBUG( 0, fmt, __VA_ARGS__ )
+#define MYDEBUG( fmt, ... )	_MYDEBUG( 0, fmt, ##__VA_ARGS__ )
 #else
 #define MYDEBUG( fmt, ... )	((void)0)
 #endif

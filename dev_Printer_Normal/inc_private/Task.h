@@ -8,7 +8,7 @@
 // --
 
 #ifndef INC_PRIVATE_ALL_H
-#error Include "inc_privatee/All.h" first
+#error Include "inc_private/All.h" first
 #endif
 
 #ifndef INC_PRIVATE_TASK_H
@@ -18,7 +18,6 @@
 
 enum TaskState
 {
-	TASK_State_Unset,
 	TASK_State_Stopped,
 	TASK_State_Starting,
 	TASK_State_Running,

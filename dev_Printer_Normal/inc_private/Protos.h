@@ -8,7 +8,7 @@
 // --
 
 #ifndef INC_PRIVATE_ALL_H
-#error Include "inc_privatee/All.h" first
+#error Include "inc_private/All.h" first
 #endif
 
 #ifndef INC_PRIVATE_PROTOS_H

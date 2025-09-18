@@ -17,7 +17,7 @@ S32 retval;
 
 	retval = FALSE;
 
-	MYDEBUG( "Printer : Process_Init", 0 );
+	MYDEBUG( "Printer : Process_Init" );
 
 	// --
 
@@ -31,7 +31,7 @@ S32 retval;
 	||	( ! unit->unit_Begin_MsgPort )
 	||	( ! unit->unit_Abort_MsgPort ))
 	{
-		MYERROR( "Printer : Process_Init : Error creating objects", 0 );
+		MYERROR( "Printer : Process_Init : Error creating objects" );
 		goto bailout;
 	}
 

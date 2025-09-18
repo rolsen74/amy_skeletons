@@ -29,16 +29,16 @@ CFLAGS		+= -MMD
 CFLAGS		+= -MP
 
 # Add debug info like source file / line nr ( huge binary file )
-#CFLAGS		+= -gstabs
+CFLAGS		+= -gstabs
 
 # Print Error Messages on serial
-#CFLAGS		+= -DDO_ERROR
+CFLAGS		+= -DDO_ERROR
 
 # Print Info Messages on serial
-#CFLAGS		+= -DDO_INFO
+CFLAGS		+= -DDO_INFO
 
 # Print Debug Messages on serial
-#CFLAGS		+= -DDO_DEBUG
+CFLAGS		+= -DDO_DEBUG
 
 # Linker Flags
 LDFLAGS		:= -nostartfiles

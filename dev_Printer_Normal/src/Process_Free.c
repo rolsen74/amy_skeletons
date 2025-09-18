@@ -16,13 +16,13 @@ void Process_Free( struct PrinterUnit *unit )
 struct AbortIOMessage *msg;
 struct IORequest *ioreq;
 
-	MYERROR( "Printer : Process_Free", 0 );
+	MYERROR( "Printer : Process_Free" );
 
 	// --
 
 	if ( unit->unit_Write_List )
 	{
-		MYINFO( "Printer : Freeing Write list", 0 );
+		MYINFO( "Printer : Freeing Write list" );
 
 		while( TRUE )
 		{
@@ -46,7 +46,7 @@ struct IORequest *ioreq;
 
 	if ( unit->unit_Read_List )
 	{
-		MYINFO( "Printer : Freeing Read list", 0 );
+		MYINFO( "Printer : Freeing Read list" );
 
 		while( TRUE )
 		{
@@ -70,7 +70,7 @@ struct IORequest *ioreq;
 
 	if ( unit->unit_Abort_MsgPort )
 	{
-		MYINFO( "Printer : Clearing Abort MsgPort", 0 );
+		MYINFO( "Printer : Clearing Abort MsgPort" );
 
 		while( TRUE )
 		{
@@ -93,7 +93,7 @@ struct IORequest *ioreq;
 
 	if ( unit->unit_Begin_MsgPort )
 	{
-		MYINFO( "Printer : Clearing Begin MsgPort", 0 );
+		MYINFO( "Printer : Clearing Begin MsgPort" );
 
 		while( TRUE )
 		{

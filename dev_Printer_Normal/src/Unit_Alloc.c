@@ -16,7 +16,7 @@ struct PrinterUnit *Unit_Alloc( U32 unitnr )
 struct PrinterUnit *unit;
 S32 error;
 
-	MYDEBUG( "Printer : Unit_Alloc", 0 );
+	MYDEBUG( "Printer : Unit_Alloc" );
 
 	error = TRUE;
 
@@ -27,7 +27,7 @@ S32 error;
 
 	if ( ! unit )
 	{
-		MYERROR( "Printer : Error allocating memory", 0 );
+		MYERROR( "Printer : Error allocating memory" );
 		goto bailout;
 	}
 
@@ -38,7 +38,7 @@ S32 error;
 
 	if ( ! unit->unit_TaskName )
 	{
-		MYERROR( "Printer : Error allocating memory", 0 );
+		MYERROR( "Printer : Error allocating memory" );
 		goto bailout;
 	}
 

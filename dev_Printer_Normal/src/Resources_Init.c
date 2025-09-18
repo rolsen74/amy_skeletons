@@ -18,7 +18,7 @@ S32 Resources_Init( struct PrinterBase *devBase UNUSED )
 {
 S32 retval;
 
-	MYDEBUG( "Printer : Resources_Init", 0 );
+	MYDEBUG( "Printer : Resources_Init" );
 
 	retval = FALSE;
 
@@ -29,7 +29,7 @@ S32 retval;
 
 	if ( ! INewlib )
 	{
-		MYERROR( "Error opening Newlib library (v50)", 0 );
+		MYERROR( "Error opening Newlib library (v50)" );
 		goto bailout;
 	}
 
@@ -40,7 +40,7 @@ S32 retval;
 
 	if ( ! IDOS )
 	{
-		MYERROR( "Error opening DOS library (v50)", 0 );
+		MYERROR( "Error opening DOS library (v50)" );
 		goto bailout;
 	}
 
@@ -51,13 +51,13 @@ S32 retval;
 
 	if ( ! IUtility )
 	{
-		MYERROR( "Error opening Utility library (v50)", 0 );
+		MYERROR( "Error opening Utility library (v50)" );
 		goto bailout;
 	}
 
 	// --
 
-//	InitSemaphore( & devBase->dev_PRT_Semaphore );
+	InitSemaphore( & devBase->dev_PRT_Semaphore );
 
 	// --
 

@@ -10,31 +10,31 @@
 #include "inc_private/All.h"
 
 // --
-// Note:
-//
-//  When we get a new command/ioreq, we need too send it too some
-//  one that can handle that.. and 9/10 times it mean we have to start
-//  a process to handle commands. 
-//
-//  So most of the times the chooice is, do we need only one process too
-//  handle all units or one process pr unit. Here we implement one process
-//  pr. unit.
-//
-//  By sending all ioreq's too our process, we offen have the benifit that
-//  we can avoid calling ObtainSemaphore/ReleaseSemaphore before accessing
-//  data now that all commands run in the unit process.
-//
-//  But there is ofcoarse execptions.. 
-//  If you have a device that controlled a usb device like a printer.
-//  The printer may not be connected or not, but a user program might want
-//  too know what type of device it is, no matter of if the printer there or
-//  not.. 
-//
-//  So it makes sense too handle NSCMD_DEVICEQUERY out side of the process.
-//  Or maybe you want maximum speed and can handle it right here and now,
-//  you could also handle it here, thinkgs are easyer too run all/most commands
-//  in the unit process.
-//
+
+/*
+** Note:
+**
+**  When we get a new command/IORequest, we need to send it to something
+**  that can handle it—and 9/10 times that means starting a process to
+**  handle commands.
+**
+**  The usual choice is: do we run a single process for all units, or one
+**  process per unit? Here we implement one process per unit.
+**
+**  By sending all IORequests to our unit process, we often benefit by
+**  avoiding ObtainSemaphore/ReleaseSemaphore around shared data, since all
+**  commands run in the unit process.
+**
+**  Of course there are exceptions:
+**  If your device controls external hardware (e.g., a USB printer), the
+**  printer may or may not be connected—but a program might still want to
+**  know what type of device it is, regardless of presence.
+**
+**  So it makes sense to handle NSCMD_DEVICEQUERY outside of the unit process.
+**  If you need maximum speed and can handle a command immediately, you can
+**  also do it here. Still, it’s usually simpler to run most commands inside
+**  the unit process.
+*/
 
 void _manager_BeginIO( struct DeviceManagerInterface *Self UNUSED, struct IORequest *ioreq )
 {
@@ -63,13 +63,13 @@ struct PrinterUnit *unit;
 			unit = (PTR) ioreq->io_Unit;
 
 			// check if unit process is running, if not try and start it
-			if (( ! unit->unit_Shutdown ) && ( ! unit->unit_StartupComplete ))
+			if (( ! unit->unit_Shutdown ) && ( unit->unit_TaskState == TASK_State_Stopped ))
 			{
 				Unit_Startup( unit );
 			}
 
 			// is the process running or should we send it back
-			if (( ! unit->unit_Shutdown ) && ( unit->unit_StartupComplete ))
+			if (( ! unit->unit_Shutdown ) && ( unit->unit_TaskState == TASK_State_Running ))
 			{
 				PutMsg( unit->unit_Begin_MsgPort, (PTR) ioreq );
 			}

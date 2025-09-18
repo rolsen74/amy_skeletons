@@ -16,7 +16,7 @@ PTR _manager_Expunge( struct DeviceManagerInterface *Self )
 struct PrinterBase *devBase;
 PTR seglist;
 
-	MYDEBUG( "Printer : _manager_Expunge", 0 );
+	MYDEBUG( "Printer : _manager_Expunge" );
 
 	devBase = (PTR) Self->Data.LibBase;
 
@@ -37,6 +37,7 @@ PTR seglist;
 		seglist = NULL;
 	}
 
+	// Return NULL or SegList
 	return( seglist );
 }
 

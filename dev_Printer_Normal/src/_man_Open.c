@@ -14,7 +14,7 @@
 /*
 ** Important:
 **
-** Printer device, only allow one opener pr. unit
+**  Printer device: allows only one opener per unit.
 */
 
 S32 _manager_Open(
@@ -27,7 +27,7 @@ struct PrinterBase *devBase;
 struct PrinterUnit *unit;
 S32 error;
 
-	MYDEBUG( "Printer : _manager_Open", 0 );
+	MYDEBUG( "Printer : _manager_Open" );
 
 	error = 0;
 
@@ -67,7 +67,7 @@ S32 error;
 
 	if ( ! unit )
 	{
-		MYERROR( "Printer : Error creating Unit", 0 );
+		MYERROR( "Printer : Error creating Unit" );
 		error = IOERR_OPENFAIL;
 		goto bailout;
 	}

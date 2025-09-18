@@ -16,7 +16,7 @@ extern struct Library *NewlibBase;
 
 void Resources_Free( struct PrinterBase *devBase UNUSED )
 {
-	MYDEBUG( "Printer : Resources_Free", 0 );
+	MYDEBUG( "Printer : Resources_Free" );
 
 	// --
 

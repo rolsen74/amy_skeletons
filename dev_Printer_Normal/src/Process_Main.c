@@ -16,7 +16,7 @@ void Process_Main( struct PrinterUnit *unit )
 U32 wait;
 U32 mask;
 
-	MYERROR( "Printer : Process_Main : Enter", 0 );
+	MYERROR( "Printer : Process_Main : Enter" );
 
 	wait = SIGBREAKF_CTRL_C;
 	wait |= unit->unit_Begin_MsgPortBit;
@@ -47,13 +47,14 @@ U32 mask;
 			if ( unit->unit_ExitParent )
 			{
 				unit->unit_Running = FALSE;
+				unit->unit_Shutdown = TRUE;
 			}
 		}
 	}
 
 	unit->unit_StartupComplete = FALSE;
 
-	MYERROR( "Printer : __myProcess_Main : Leave", 0 );
+	MYERROR( "Printer : __myProcess_Main : Leave" );
 }
 
 // --

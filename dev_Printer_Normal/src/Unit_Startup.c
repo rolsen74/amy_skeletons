@@ -22,7 +22,7 @@ S32 sig;
 
 	if ( ! unit )
 	{
-		MYERROR( "Printer : Unit_Startup : NULL Pointer", 0 );
+		MYERROR( "Printer : Unit_Startup : NULL Pointer" );
 		goto bailout;
 	}
 
@@ -67,7 +67,7 @@ S32 sig;
 
 	if ( ! msg.Result )
 	{
-		MYERROR( "Printer : Failed to Printer process", 0 );
+		MYERROR( "Printer : Failed to Printer process" );
 		goto bailout;
 	}
 
@@ -80,7 +80,7 @@ S32 sig;
 
 bailout:
 
-	MYDEBUG( "Printer : Unit_Startup : Leave : Retval %ld", retval );
+	MYDEBUG( "Printer : Unit_Startup : Leave" );
 
 	return( retval );
 }

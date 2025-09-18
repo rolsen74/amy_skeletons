@@ -13,7 +13,7 @@
 
 void _cmd_0002_Read( struct PrinterUnit *unit, struct IOStdReq *ioreq )
 {
-	MYDEBUG( "Printer : _cmd_0002_Read", 0 );
+	MYDEBUG( "Printer : _cmd_0002_Read" );
 
 	// No need for Semahpre protection here
 	// as all List handling in done in same Unit process

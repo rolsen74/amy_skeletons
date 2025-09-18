@@ -30,7 +30,7 @@ PTR seglist;
 
 	if ( ! unit )
 	{
-		MYERROR( "Printer : Unit NULL Pointer", 0 );
+		MYERROR( "Printer : Unit NULL Pointer" );
 		goto bailout;
 	}
 
@@ -77,6 +77,7 @@ bailout:
 
 	ReleaseSemaphore( & devBase->dev_PRT_Semaphore );
 
+	// Return NULL or SegList
 	return( seglist );
 }
 

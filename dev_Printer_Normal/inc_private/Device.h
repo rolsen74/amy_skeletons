@@ -8,7 +8,7 @@
 // --
 
 #ifndef INC_PRIVATE_ALL_H
-#error Include "inc_privatee/All.h" first
+#error Include "inc_private/All.h" first
 #endif
 
 #ifndef INC_PRIVATE_DEVICE_H
@@ -51,11 +51,6 @@ struct PrinterUnit
 
 	// -- Settings
 	U8								unit_StartupComplete;
-//	U8								unit_NotRunning;			// Error shown
-//	U8								unit_CfgError;				// Cfg err Shown
-//	U8								unit_Detached;				// USB Device disconnected
-//	U8								unit_PrinterStatus;
-//	U8								unit_LastByteSend;
 	U8								unit_Shutdown;				// Yes time to stop, clear buffers and exit
 	U8								unit_Running;				// 
 };
@@ -64,8 +59,8 @@ struct PrinterUnit
 
 struct AbortIOMessage
 {
-	struct Message		am_Message;
-	PTR					am_IOReq;
+	struct Message					am_Message;
+	PTR								am_IOReq;
 };
 
 // --

@@ -10,14 +10,13 @@
 #include "inc_private/All.h"
 
 // --
-// Note:
-//
-//  Do not allocate MsgPort / Signals here.
-//
-//  We are running in Ramdisk / Ramlib / exec startup process here,
-//  if you need too alloc do that in manager_open as that is in the 
-//  callers process.
-// 
+
+/*
+** Note:
+**  Do not allocate MsgPorts / signals here.
+**  We’re running in the Ramdisk/Ramlib/Exec startup context. If you need to
+**  allocate any signals, do it in manager_open (the caller’s process context).
+*/
 
 PTR _manager_Init( PTR Dummy UNUSED, PTR SegList, struct ExecBase *mySysBase )
 {
@@ -27,12 +26,12 @@ struct PrinterBase *devBase;
 	SysBase = (PTR) mySysBase;
 	IExec = (PTR) mySysBase->MainInterface;
 
-	MYDEBUG( "Printer : _manager_Init", 0 );
+	MYDEBUG( "Printer : _manager_Init" );
 
 	// Make sure we havent started
 	if ( FindName( & mySysBase->DeviceList, DEVNAME ))
 	{
-		MYERROR( "_manager_Init : Device allready loaded", 0 );
+		MYERROR( "_manager_Init : Device allready loaded" );
 		goto bailout;
 	}
 
@@ -47,7 +46,7 @@ struct PrinterBase *devBase;
 
 	if ( ! devBase )
 	{
-		MYERROR( "_manager_Init : Failed to create device", 0 );
+		MYERROR( "_manager_Init : Failed to create device" );
 		goto bailout;
 	}
 
@@ -61,28 +60,24 @@ struct PrinterBase *devBase;
 	devBase->dev_SegList = SegList;
 
 	/*
-	** As we are adding the Device manualy we now have
-	** a little extra control here..
-	**
-	** Here we have the Base address even if its not public yet.
-	** 
-	** if we wanted we could Obtain the Main interface here
-	**  and call one of our own Interface functions.
+	** Because we add the device manually, we have full control here.
+	** If needed, you could obtain your own main interface and call your
+	** own methods before publication.
 	*/
 
 	if ( Resources_Init( devBase ))
 	{
-		MYDEBUG( "Printer : Opening Resources...  Success", 0 );
+		MYDEBUG( "Printer : Opening Resources...  Success" );
 
-		// Make it public
+		/* Make it public */
 		AddDevice( (PTR) devBase );
 
-		// Optional : I like too always print a small message, so i'm sure we started
+		/* Optional: small startup message */
 		DebugPrintF( "Printer : Rock'n Roll\n" );
 	}
 	else
 	{
-		MYERROR( "Printer : Opening Resources...  Failed", 0 );
+		MYERROR( "Printer : Opening Resources...  Failed" );
 
 		Resources_Free( devBase );
 

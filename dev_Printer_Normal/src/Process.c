@@ -20,7 +20,7 @@ struct Task *self;
 U32 mask;
 S32 stat;
 
-	MYERROR( "Printer : Process_Entry : Enter", 0 );
+	MYERROR( "Printer : Process_Entry : Enter" );
 
 	self	= FindTask( NULL );
 	msg		= (PTR) self->tc_UserData;
@@ -65,7 +65,7 @@ S32 stat;
 
 	unit->unit_TaskState = TASK_State_Stopped;
 
-	MYERROR( "Printer : Process_Entry : Leave", 0 );
+	MYERROR( "Printer : Process_Entry : Leave" );
 
 	// --
 	// Parent can be NULL

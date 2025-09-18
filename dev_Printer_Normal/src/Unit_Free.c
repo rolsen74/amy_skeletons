@@ -13,7 +13,7 @@
 
 void Unit_Free( struct PrinterUnit *unit )
 {
-	MYDEBUG( "Printer : Unit_Free :", 0 );
+	MYDEBUG( "Printer : Unit_Free :" );
 
 	if ( ! unit )
 	{
