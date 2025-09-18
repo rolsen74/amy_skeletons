@@ -4,7 +4,7 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 
 **Variants:**
 - **68k** — Includes jumptable stubs for AmigaOS3 (68k)
-- **Normal** — Manual registration into the system (more control/freedom)
+- **Manual** — Manual registration into the system (more control/freedom)
 - **Autoinit** — Automatically added by the system
 - **Library** — Builds an Amiga library
 - **Device** — Builds an Amiga device
@@ -21,16 +21,16 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 ---
 
 ## 🧩 Generic Libraries
-- `_Generic_Library_Normal`
-- `_Generic_Library_Normal_68k`
+- `_Generic_Library_Manual`
+- `_Generic_Library_Manual_68k`
 - `_Generic_Library_Autoinit`
 - `_Generic_Library_Autoinit_68k`
 
 ## ⚙️ Generic Devices
-- `_Generic_Device_Normal`
-- `_Generic_Device_Normal_68k`
-- `_Generic_Device_Normal_Main`
-- `_Generic_Device_Normal_Main_68k`
+- `_Generic_Device_Manual`
+- `_Generic_Device_Manual_68k`
+- `_Generic_Device_Manual_Main`
+- `_Generic_Device_Manual_Main_68k`
 - `_Generic_Device_Autoinit`
 - `_Generic_Device_Autoinit_68k`
 
