@@ -60,8 +60,8 @@ struct DockyBase *libBase;
 	libBase->lib_SegList = SegList;
 
 	/*
-	** Because we add the device manually, we have full control here.
-	** If needed, you could obtain your own main interface and call your
+	** Because we add the library manually, we have full control here.
+	** If needed, you could obtain your own main/docky interface and call your
 	** own methods before publication.
 	*/
 
