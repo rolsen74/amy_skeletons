@@ -58,3 +58,4 @@ dkms.conf
 *.device
 *.library
 *.docky
+*.blanker
