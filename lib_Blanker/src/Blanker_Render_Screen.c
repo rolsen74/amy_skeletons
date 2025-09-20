@@ -15,7 +15,6 @@ void Blanker_Render_Screen( struct BlankerData *data )
 {
 struct Screen *scr;
 struct Window *win;
-Object *MouseObject;
 U32 modeid;
 S32 w;
 S32 h;
@@ -28,8 +27,6 @@ S32 h;
 	scr = NULL;
 
 	modeid = INVALID_ID;
-
-	MouseObject = NULL;
 
 	// --
 	// Get Screen ModeID
@@ -102,21 +99,6 @@ S32 h;
 	}
 
 	// --
-	// Create (Empty) Mouse Pointer
-
-//	MouseObject = IIntuition->NewObject( NULL, "pointerclass",
-//		POINTERA_BitMap,    & PointerBitmap,
-//		POINTERA_XOffset,   0,
-//		POINTERA_YOffset,   0,
-//		TAG_END
-//	);
-//
-//	if ( ! MouseObject )
-//	{
-//		goto bailout;
-//	}
-
-	// --
 	// Open Window
 
 	win = OpenWindowTags( NULL,
@@ -129,7 +111,7 @@ S32 h;
 		WA_DragBar,			FALSE,
 		WA_SizeGadget,		FALSE,
 		WA_Title,			NULL,
-//		WA_Pointer,			MouseObject,
+		WA_Pointer,			data->bd_MouseObject,
 		WA_Left,			0,
 		WA_Top,				0,
 		WA_Width,			w,
@@ -159,12 +141,6 @@ bailout:
 	{
 		CloseScreen( scr );
 		scr = NULL;
-	}
-
-	if ( MouseObject )
-	{
-		DisposeObject( MouseObject );
-		MouseObject = NULL;
 	}
 }
 

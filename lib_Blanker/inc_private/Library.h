@@ -51,6 +51,7 @@ struct BlankerData
 	U32								bd_DoScreenSync;
 	struct BlankerPrefsWindowInfo	bd_WinInfo;
 	struct ScreenModeRequester *	bd_ScreenModeRequester;
+	Object *						bd_MouseObject;
 	// ---
 	Object *						Gad_ScreenType;
 	Object *						Gad_ScreenMode;

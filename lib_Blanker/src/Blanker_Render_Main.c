@@ -208,7 +208,7 @@ struct Task *Self;
 struct intern in;
 S32 oldpri;
 
-	MYERROR( "Blanker_Render_Main : Enter" );
+	MYERROR( "Blanker : Blanker_Render_Main : Enter" );
 
 	memset( & in, 0, sizeof( in ));
 	in.Blanker_CurMode = -1;		// -1 so we run at once
@@ -260,7 +260,7 @@ S32 oldpri;
 
 	__Free( data, & in );
 
-	MYERROR( "Blanker_Render_Main : Leave" );
+	MYERROR( "Blanker : Blanker_Render_Main : Leave" );
 }
 
 // --

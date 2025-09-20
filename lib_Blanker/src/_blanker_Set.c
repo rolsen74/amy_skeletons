@@ -43,7 +43,7 @@ BOOL retval;
 				case SBBM_DPMS_Suspend:
 				case SBBM_DPMS_PowerOff:
 				{
-					MYINFO( "Blanker : BMSET_BlankingMode : Mode %ld", msgData );
+					MYINFO( "Blanker : BMSET_BlankingMode : Mode #%ld", msgData );
 					data->bd_BlankingMode = msgData;
 					retval = TRUE;
 					break;
@@ -51,7 +51,7 @@ BOOL retval;
 
 				default:
 				{
-					MYERROR( "BMSET_BlankingMode : Unsupported Mode %ld", msgData );
+					MYERROR( "BMSET_BlankingMode : Unsupported Mode #%ld", msgData );
 					retval = FALSE;
 					break;
 				}
@@ -115,7 +115,7 @@ BOOL retval;
 
 		default:
 		{
-			MYINFO( "Blanker : Unsupported DOCKYSET (%ld)", msgType );
+			MYINFO( "Blanker : Unsupported BMSET (%ld)", msgType );
 
 			retval = FALSE;
 			break;

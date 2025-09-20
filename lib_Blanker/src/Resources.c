@@ -165,7 +165,7 @@ S32 myOpenResources( void )
 S32 retval;
 S32 pos;
 
-	MYERROR( "myOpenResources" );
+	MYERROR( "Blanker : myOpenResources" );
 
 	retval = FALSE;
 
@@ -176,7 +176,7 @@ S32 pos;
 			break;
 		}
 
-		MYERROR( "myOpenResources : Processing : %s", OpenList[pos].os_STR );
+//		MYERROR( "Blanker : Processing : %s", OpenList[pos].os_STR );
 
 		switch( OpenList[pos].os_Type )
 		{
@@ -192,7 +192,7 @@ S32 pos;
 
 				if ( ! *base )
 				{
-					MYERROR( "Error opening library '%s' v%lu", name, vers );
+					MYERROR( "Blanker : Error opening library '%s' v%lu", name, vers );
 					goto bailout;
 				}
 				break;
@@ -211,7 +211,7 @@ S32 pos;
 
 				if ( ! *ifc )
 				{
-					MYERROR( "Error getting interface pos #%lu", pos );
+					MYERROR( "Blanker : Error getting interface pos #%lu", pos );
 					goto bailout;
 				}
 				break;
@@ -231,7 +231,7 @@ S32 pos;
 
 				if ( *base == NULL )
 				{
-					MYERROR( "Error opening class '%s' pos #%lu", name, pos );
+					MYERROR( "Blanker : Error opening class '%s' pos #%lu", name, pos );
 					goto bailout;
 				}
 				break;
@@ -239,7 +239,7 @@ S32 pos;
 
 			default:
 			{
-				MYERROR( "Unknown Resource type (%lu)", OpenList[pos].os_Type );
+				MYERROR( "Blanker : Unknown Resource type (%lu)", OpenList[pos].os_Type );
 				goto bailout;
 			}
 		}
@@ -258,6 +258,8 @@ void myCloseResources( void )
 {
 S32 pos;
 
+	MYERROR( "Blanker : myCloseResources" );
+
 	// -- Find End of List
 	for( pos=0 ; TRUE ; pos++ )
 	{
@@ -271,7 +273,7 @@ S32 pos;
 	// Test pos and then Subtact 1
 	while( pos-- )
 	{
-		MYERROR( "myCloseResources : Processing : %s", OpenList[pos].os_STR );
+		MYERROR( "Blanker : Processing : %s", OpenList[pos].os_STR );
 
 		switch( OpenList[pos].os_Type )
 		{

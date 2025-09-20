@@ -29,6 +29,12 @@ struct BlankerData *data;
 		data->bd_ScreenModeRequester = NULL;
 	}
 
+	if ( data->bd_MouseObject )
+	{
+		DisposeObject( data->bd_MouseObject );
+		data->bd_MouseObject = NULL;
+	}
+
 	FreeVec( data );
 	
 	return( TRUE );

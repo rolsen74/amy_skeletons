@@ -11,6 +11,18 @@
 
 // --
 
+static const struct BitMap PointerBitmap =
+{
+	0,
+	0,
+	0,
+	0,
+	0,
+	{ 0, 0, 0, 0, 0, 0, 0, 0 },
+};
+
+// --
+
 PTR _blanker_Clone( struct BlankerModuleIFace *Self )
 {
 //struct BlankerBase *libBase;
@@ -44,6 +56,26 @@ S32 error;
 	Settings_Default( data );
 
 	data->bd_BlankingMode = SBBM_NoBlanking;
+
+
+	// --
+	// Create (Empty) Mouse Pointer
+
+	data->bd_MouseObject = NewObject( NULL, "pointerclass",
+		POINTERA_BitMap,    & PointerBitmap,
+		POINTERA_XOffset,   0,
+		POINTERA_YOffset,   0,
+		TAG_END
+	);
+
+	if ( ! data->bd_MouseObject )
+	{
+		MYERROR( "Blanker : Error creating ASL Handle" );
+		goto bailout;
+	}
+
+	// --
+	// Alloc ASL
 	data->bd_ScreenModeRequester = AllocAslRequestTags( ASL_ScreenModeRequest,
 		TAG_END
 	);
