@@ -20,11 +20,6 @@ char buf[32];
 
 	win = data->bd_WinInfo.window;
 
-//	RefreshSetGadgetAttrs( (PTR) data->Gad_Objects, data->bd_WinInfo.window, NULL,
-//		SLIDER_Level, data->bd_Objects,
-//		TAG_END
-//	);
-
 //	RefreshSetGadgetAttrs( (PTR) data->Gad_Speed, data->bd_WinInfo.window, NULL,
 //		SLIDER_Level, data->bd_Speed,
 //		TAG_END
