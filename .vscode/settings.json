@@ -29,10 +29,18 @@
 	  "files.eol": "\n"
 	},
 	"files.associations": {
+		"*.vma": "plaintext",
+		"*.vmi": "plaintext",
 		"*.asm": "plaintext",
 		"*.s": "plaintext",
 		"*.i": "plaintext",
 		"*.h": "c",
 		"*.c": "c"
 	},
-}
+	"editor.quickSuggestions": {
+	  "comments": false,
+	  "strings": false,
+	  "other": false
+	},
+	"editor.inlineSuggest.enabled": false
+  }
