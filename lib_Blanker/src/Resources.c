@@ -52,38 +52,6 @@ struct UtilityIFace *		IUtility			= NULL;
 struct P96IFace *			IP96				= NULL;
 struct PrefsObjectsIFace *	IPrefsObjects 		= NULL;
 
-// -- 
-
-#if 0
-struct Library *			ApplicationBase		= NULL;
-struct Library *        	AslBase     		= NULL;
-struct Library *        	ChooserBase     	= NULL;
-struct Library *			CyberGfxBase		= NULL;
-struct Library *        	DOSBase      		= NULL;
-struct Library *        	GfxBase      		= NULL;
-struct Library *        	IntuitionBase   	= NULL;
-struct Library *        	P96Base     		= NULL;
-struct Library *        	ScreenBlankerBase	= NULL;
-struct Library *        	NewlibBase     		= NULL;
-struct Library *        	UtilityBase     	= NULL;
-
-struct ApplicationIFace *	IApplication 		= NULL;
-struct AslIFace *    		IAsl         		= NULL;
-struct ChooserIFace *    	IChooser        	= NULL;
-struct CyberGfxIFace *		ICyberGfx			= NULL;
-struct DOSIFace *    		IDOS            	= NULL;
-struct ExecIFace *      	IExec           	= NULL;
-struct IntuitionIFace * 	IIntuition      	= NULL;
-struct P96IFace *   		IP96	        	= NULL;
-struct PrefsObjectsIFace *	IPrefsObjects 		= NULL;
-struct ScreenBlankerIFace *	IScreenBlanker		= NULL;
-struct Interface *    		INewlib         	= NULL;
-struct UtilityIFace *   	IUtility        	= NULL;
-
-struct ScreenModeRequester *ScreenModeRequester = NULL;
-unsigned int				RandomSeed;
-#endif
-
 // --
 
 enum OpenType
