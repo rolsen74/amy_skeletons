@@ -146,6 +146,7 @@ SRCS		+= src/_m_GM_Extent.c
 SRCS		+= src/_m_GM_GoActive.c
 SRCS		+= src/_m_GM_GoInactive.c
 SRCS		+= src/_m_GM_HitTest.c
+SRCS		+= src/_m_GM_HintInfo.c
 SRCS		+= src/_m_GM_HandleInput.c
 SRCS		+= src/_m_GM_Layout.c
 SRCS		+= src/_m_GM_Render.c

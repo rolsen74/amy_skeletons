@@ -40,6 +40,7 @@ struct GadData
 	PTR								needed_data;
 	U32								Optional;
 	PTR								SomeData;
+	STR								HintInfoStr;
 	// --
 	S32								GadXPos;
 	S32								GadYPos;

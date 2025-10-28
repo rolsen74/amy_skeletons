@@ -38,6 +38,12 @@ U32 retval;
 
 		switch( tag->ti_Tag )
 		{
+			case GA_HintInfo:
+			{
+				data->HintInfoStr = (STR) tag->ti_Data;
+				break;
+			}
+
 			case TEST_GADGET_Optional:
 			{
 				U32 val = ( tag->ti_Data ) ? TRUE : FALSE ;

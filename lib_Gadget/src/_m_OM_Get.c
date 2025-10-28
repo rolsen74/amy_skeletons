@@ -32,6 +32,12 @@ U32 retval;
 
 	switch( msg->opg_AttrID )
 	{
+		case GA_HintInfo:
+		{
+			*store = (U32) data->HintInfoStr;
+			break;
+		}
+
 		case TEST_GADGET_Optional:
 		{
 			*store = (U32) data->Optional;

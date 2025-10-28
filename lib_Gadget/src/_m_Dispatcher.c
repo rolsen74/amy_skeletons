@@ -41,6 +41,7 @@ U32 retval;
 		case GM_HANDLEINPUT:	retval = _m_GM_HandleInput(	cl, obj, (PTR) msg );	break;
 		case GM_GOINACTIVE:		retval = _m_GM_GoInactive(	cl, obj, (PTR) msg );	break;
 		case GM_RENDER:			retval = _m_GM_Render(		cl, obj, (PTR) msg );	break;
+		case GM_QUERY:			retval = _m_GM_Query( 		cl, obj, (PTR) msg );	break;
 
 		/* Custom Methods */
 		// case SIMPLELISTM_Clear:		retval = SL_SIMPLELISTM_Clear(		cl, obj, (PTR) msg );	break;

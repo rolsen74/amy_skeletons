@@ -53,5 +53,6 @@ U32 _m_GM_GoActive( Class *cl, Object *obj, struct gpInput *msg );
 U32 _m_GM_GoInactive( Class *cl, Object *obj, struct gpGoInactive *msg );
 U32 _m_GM_HandleInput( Class *cl, Object *obj, struct gpInput *msg );
 U32 _m_GM_Render( Class *cl, Object *obj, struct gpRender *msg );
+U32 _m_GM_Query( Class *cl, Object *obj, struct gpQuery *msg );
 
 #endif
