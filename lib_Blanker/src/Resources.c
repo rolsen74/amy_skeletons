@@ -239,8 +239,10 @@ S32 pos;
 
 	// -- Walk back
 	// Test pos and then Subtact 1
-	while( pos-- )
+	// but Don't close Newlib
+	while( pos > 2 )
 	{
+		pos--;
 		MYERROR( "Blanker : Processing : %s", OpenList[pos].os_STR );
 
 		switch( OpenList[pos].os_Type )
