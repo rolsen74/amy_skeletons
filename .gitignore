@@ -60,3 +60,4 @@ dkms.conf
 *.docky
 *.blanker
 *.gadget
+*.resource
