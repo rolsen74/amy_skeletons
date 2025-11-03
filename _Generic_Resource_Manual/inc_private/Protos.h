@@ -33,7 +33,7 @@ U32 _main_GetVal( struct Test_ResourceIFace *Self );
 // Gadget Resources Functions
 S32 Resources_Init( struct Real_ResourceBase *devBase );
 void Resources_Free( struct Real_ResourceBase *devBase );
-S32 myOpenResources( void );
+S32 myOpenResources( int max_libs );
 void myCloseResources( void );
 
 #endif

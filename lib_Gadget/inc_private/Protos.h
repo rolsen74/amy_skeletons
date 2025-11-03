@@ -33,7 +33,7 @@ Class *_main_GetClass( struct Test_GadgetIFace *Self );
 // Gadget Resources Functions
 S32 Resources_Init( struct LibBase *devBase );
 void Resources_Free( struct LibBase *devBase );
-S32 myOpenResources( void );
+S32 myOpenResources( int max_libs );
 void myCloseResources( void );
 
 // --

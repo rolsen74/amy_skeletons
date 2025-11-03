@@ -37,7 +37,7 @@ void _blanker_Blank( struct BlankerModuleIFace *Self );
 // Device Resources Functions
 S32 Resources_Init( struct BlankerBase *devBase );
 void Resources_Free( struct BlankerBase *devBase );
-S32 myOpenResources( void );
+S32 myOpenResources( int max_libs );
 void myCloseResources( void );
 
 // -- Blanker

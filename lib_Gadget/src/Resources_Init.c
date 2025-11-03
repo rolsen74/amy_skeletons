@@ -22,10 +22,10 @@ S32 retval;
 
 	// --
 	// Open Resources first
-
-	if ( ! myOpenResources() )
+	//
+	if ( ! myOpenResources( INT_MAX ))
 	{
-		MYERROR( "Gadget : myOpenResources() failed" );
+		MYERROR( "Library : myOpenResources() failed" );
 		goto bailout;
 	}
 

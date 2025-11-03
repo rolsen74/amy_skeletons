@@ -102,7 +102,7 @@ static struct OpenStruct OpenList[] =
 //	{ OT_Library,		"cybergraphics.library",	42,			NULL,				& CyberGfxBase },
 //	{ OT_Library,		"dos.library",				50,			NULL,				& DOSBase },
 //	{ OT_Library,		"graphics.library",			50,			NULL,				& GfxBase },
-//	{ OT_Library,		"intuition.library",		50,			NULL,				& IntuitionBase },
+	{ OT_Library,		"intuition.library",		50,			NULL,				& IntuitionBase },
 //	{ OT_Library,		"Picasso96API.library",		50,			NULL,				& P96Base },
 	{ OT_Library,		"utility.library",			50,			NULL,				& UtilityBase },
 //	{ OT_Library,		"layers.library",			50,			NULL,				& LayersBase },
@@ -114,7 +114,7 @@ static struct OpenStruct OpenList[] =
 //	{ OT_Interface,		"main",						1,			& CyberGfxBase,		& ICyberGfx },
 //	{ OT_Interface,		"main",						1,			& DOSBase,			& IDOS },
 //	{ OT_Interface,		"main",						1,			& GfxBase,			& IGraphics },
-//	{ OT_Interface,		"main",						1,			& IntuitionBase,	& IIntuition },
+	{ OT_Interface,		"main",						1,			& IntuitionBase,	& IIntuition },
 //	{ OT_Interface,		"main",						1,			& P96Base,			& IP96 },
 	{ OT_Interface,		"main",						1,			& UtilityBase,		& IUtility },
 //	{ OT_Interface,		"main",						1,			& LayersBase,		& ILayers },
@@ -132,79 +132,120 @@ static struct OpenStruct OpenList[] =
 
 // --
 
-S32 myOpenResources( void )
+S32 myOpenResources( int max_libs )
 {
 S32 retval;
 S32 pos;
+PTR ptr;
 
 	MYERROR( "Library : myOpenResources" );
 
 	retval = FALSE;
 
-	for( pos=0 ; TRUE ; pos++ )
+	for( pos=0 ; pos < max_libs ; pos++ )
 	{
 		if ( OpenList[pos].os_Type == OT_End )
 		{
 			break;
 		}
 
-//		MYERROR( "Library : Processing : %s", OpenList[pos].os_STR );
-
 		switch( OpenList[pos].os_Type )
 		{
 			case OT_Library:
 			{
 				PTR *base = OpenList[pos].OS_LIB_BASE;
-				STR name = OpenList[pos].OS_LIB_NAME;
-				U32 vers = OpenList[pos].OS_LIB_VERS;
 
-				MYINFO( "Library : Opening library '%s' v%lu", name, vers );
-
-				*base = OpenLibrary( name, vers );
-
-				if ( ! *base )
+				if ( ! base )
 				{
-					MYERROR( "Library : Error opening library '%s' v%lu", name, vers );
+					MYERROR( "Library : Error missing base pointer" );
 					goto bailout;
+				}
+
+				if ( *base == NULL )
+				{
+					STR name = OpenList[pos].OS_LIB_NAME;
+					U32 vers = OpenList[pos].OS_LIB_VERS;
+
+					MYINFO( "Library : Opening library '%s' v%lu", name, vers );
+
+					ptr = OpenLibrary( name, vers );
+
+					if ( ! ptr )
+					{
+						MYERROR( "Library : Error opening library '%s' v%lu", name, vers );
+						goto bailout;
+					}
+
+					*base = ptr;
 				}
 				break;
 			}
 
 			case OT_Interface:
 			{
-				PTR *base = OpenList[pos].OS_IFC_BASE;
 				PTR *ifc = OpenList[pos].OS_IFC_IFC;
-				STR name = OpenList[pos].OS_IFC_NAME;
-				U32 vers = OpenList[pos].OS_IFC_VERS;
 
-				MYINFO( "Library : Getting interface pos #%lu", pos );
-
-				*ifc = GetInterface( *base, name, vers, NULL );
-
-				if ( ! *ifc )
+				if ( ! ifc )
 				{
-					MYERROR( "Library : Error getting interface pos #%lu", pos );
+					MYERROR( "Library : Error missing interface pointer" );
 					goto bailout;
+				}
+
+				if ( *ifc == NULL )
+				{
+					PTR *base = OpenList[pos].OS_IFC_BASE;
+					STR name = OpenList[pos].OS_IFC_NAME;
+					U32 vers = OpenList[pos].OS_IFC_VERS;
+
+					MYINFO( "Library : Getting interface pos #%lu", pos );
+
+					ptr = GetInterface( *base, name, vers, NULL );
+
+					if ( ! ptr )
+					{
+						MYERROR( "Library : Error getting interface pos #%lu", pos );
+						goto bailout;
+					}
+
+					*ifc = ptr;
 				}
 				break;
 			}
 
 			case OT_Class:
 			{
-				struct IClass **cls = OpenList[pos].OS_CLS_CLS;
 				PTR *base = OpenList[pos].OS_CLS_BASE;
-				STR name = OpenList[pos].OS_CLS_NAME;
-				U32 vers = OpenList[pos].OS_CLS_VERS;
 
-				MYINFO( "Library : Opening class '%s'", name );
-
-				// Make sure you have opened Intuition first
-				*base = OpenClass( name, vers, cls );
+				if ( ! base )
+				{
+					MYERROR( "Library : Error missing class pointer" );
+					goto bailout;
+				}
 
 				if ( *base == NULL )
 				{
-					MYERROR( "Library : Error opening class '%s' pos #%lu", name, pos );
-					goto bailout;
+					// Make sure you have opened Intuition first
+					if ( ! IIntuition )
+					{
+						MYERROR( "Library : Error need Intuition" );
+						goto bailout;
+					}
+
+					struct IClass **cls = OpenList[pos].OS_CLS_CLS;
+					STR name = OpenList[pos].OS_CLS_NAME;
+					U32 vers = OpenList[pos].OS_CLS_VERS;
+
+					MYINFO( "Library : Opening class '%s'", name );
+
+					ptr = OpenClass( name, vers, cls );
+
+					if ( ! ptr )
+					{
+						MYERROR( "Library : Error opening class '%s' pos #%lu", name, pos );
+						goto bailout;
+					}
+
+					*base = ptr;
 				}
 				break;
 			}

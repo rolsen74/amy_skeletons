@@ -35,7 +35,7 @@ U32 _main_FuncAdd( struct Test_LibraryIFace *Self, U32 a, U32 b );
 // Library Resources Functions
 S32 Resources_Init( struct LibBase *devBase );
 void Resources_Free( struct LibBase *devBase );
-S32 myOpenResources( void );
+S32 myOpenResources( int max_libs );
 void myCloseResources( void );
 
 #endif

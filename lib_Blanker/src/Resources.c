@@ -125,89 +125,129 @@ static struct OpenStruct OpenList[] =
 
 	{ OT_End,			NULL,						0,			NULL,				NULL },
 };
-
 // --
 
-S32 myOpenResources( void )
+S32 myOpenResources( int max_libs )
 {
 S32 retval;
 S32 pos;
+PTR ptr;
 
-	MYERROR( "Blanker : myOpenResources" );
+	MYERROR( "Library : myOpenResources" );
 
 	retval = FALSE;
 
-	for( pos=0 ; TRUE ; pos++ )
+	for( pos=0 ; pos < max_libs ; pos++ )
 	{
 		if ( OpenList[pos].os_Type == OT_End )
 		{
 			break;
 		}
 
-//		MYERROR( "Blanker : Processing : %s", OpenList[pos].os_STR );
-
 		switch( OpenList[pos].os_Type )
 		{
 			case OT_Library:
 			{
 				PTR *base = OpenList[pos].OS_LIB_BASE;
-				STR name = OpenList[pos].OS_LIB_NAME;
-				U32 vers = OpenList[pos].OS_LIB_VERS;
 
-				MYINFO( "Blanker : Opening library '%s' v%lu", name, vers );
-
-				*base = OpenLibrary( name, vers );
-
-				if ( ! *base )
+				if ( ! base )
 				{
-					MYERROR( "Blanker : Error opening library '%s' v%lu", name, vers );
+					MYERROR( "Library : Error missing base pointer" );
 					goto bailout;
+				}
+
+				if ( *base == NULL )
+				{
+					STR name = OpenList[pos].OS_LIB_NAME;
+					U32 vers = OpenList[pos].OS_LIB_VERS;
+
+					MYINFO( "Library : Opening library '%s' v%lu", name, vers );
+
+					ptr = OpenLibrary( name, vers );
+
+					if ( ! ptr )
+					{
+						MYERROR( "Library : Error opening library '%s' v%lu", name, vers );
+						goto bailout;
+					}
+
+					*base = ptr;
 				}
 				break;
 			}
 
 			case OT_Interface:
 			{
-				PTR *base = OpenList[pos].OS_IFC_BASE;
 				PTR *ifc = OpenList[pos].OS_IFC_IFC;
-				STR name = OpenList[pos].OS_IFC_NAME;
-				U32 vers = OpenList[pos].OS_IFC_VERS;
 
-				MYINFO( "Blanker : Getting interface pos #%lu", pos );
-
-				*ifc = GetInterface( *base, name, vers, NULL );
-
-				if ( ! *ifc )
+				if ( ! ifc )
 				{
-					MYERROR( "Blanker : Error getting interface pos #%lu", pos );
+					MYERROR( "Library : Error missing interface pointer" );
 					goto bailout;
+				}
+
+				if ( *ifc == NULL )
+				{
+					PTR *base = OpenList[pos].OS_IFC_BASE;
+					STR name = OpenList[pos].OS_IFC_NAME;
+					U32 vers = OpenList[pos].OS_IFC_VERS;
+
+					MYINFO( "Library : Getting interface pos #%lu", pos );
+
+					ptr = GetInterface( *base, name, vers, NULL );
+
+					if ( ! ptr )
+					{
+						MYERROR( "Library : Error getting interface pos #%lu", pos );
+						goto bailout;
+					}
+
+					*ifc = ptr;
 				}
 				break;
 			}
 
 			case OT_Class:
 			{
-				struct IClass **cls = OpenList[pos].OS_CLS_CLS;
 				PTR *base = OpenList[pos].OS_CLS_BASE;
-				STR name = OpenList[pos].OS_CLS_NAME;
-				U32 vers = OpenList[pos].OS_CLS_VERS;
 
-				MYINFO( "Blanker : Opening class '%s'", name );
-
-				// Make sure you have opened Intuition first
-				*base = OpenClass( name, vers, cls );
+				if ( ! base )
+				{
+					MYERROR( "Library : Error missing class pointer" );
+					goto bailout;
+				}
 
 				if ( *base == NULL )
 				{
-					MYERROR( "Blanker : Error opening class '%s' pos #%lu", name, pos );
-					goto bailout;
+					// Make sure you have opened Intuition first
+					if ( ! IIntuition )
+					{
+						MYERROR( "Library : Error need Intuition" );
+						goto bailout;
+					}
+
+					struct IClass **cls = OpenList[pos].OS_CLS_CLS;
+					STR name = OpenList[pos].OS_CLS_NAME;
+					U32 vers = OpenList[pos].OS_CLS_VERS;
+
+					MYINFO( "Library : Opening class '%s'", name );
+
+					ptr = OpenClass( name, vers, cls );
+
+					if ( ! ptr )
+					{
+						MYERROR( "Library : Error opening class '%s' pos #%lu", name, pos );
+						goto bailout;
+					}
+
+					*base = ptr;
 				}
 				break;
 			}
 
 			default:
 			{
-				MYERROR( "Blanker : Unknown Resource type (%lu)", OpenList[pos].os_Type );
+				MYERROR( "Library : Unknown Resource type (%lu)", OpenList[pos].os_Type );
 				goto bailout;
 			}
 		}
@@ -226,7 +266,7 @@ void myCloseResources( void )
 {
 S32 pos;
 
-	MYERROR( "Blanker : myCloseResources" );
+	MYERROR( "Library : myCloseResources" );
 
 	// -- Find End of List
 	for( pos=0 ; TRUE ; pos++ )
@@ -243,7 +283,7 @@ S32 pos;
 	while( pos > 2 )
 	{
 		pos--;
-		MYERROR( "Blanker : Processing : %s", OpenList[pos].os_STR );
+		MYERROR( "Library : Processing : %s", OpenList[pos].os_STR );
 
 		switch( OpenList[pos].os_Type )
 		{
