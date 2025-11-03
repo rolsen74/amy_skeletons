@@ -54,7 +54,7 @@ dkms.conf
 # debug information files
 *.dwo
 
-# Binary files
+# Amiga Binary files
 *.device
 *.library
 *.docky
