@@ -22,14 +22,13 @@ PTR _manager_Init( PTR Dummy UNUSED, PTR SegList UNUSED, struct ExecBase *mySysB
 {
 struct Real_ResourceBase *resBase;
 
-	NULL;
 	SysBase = (PTR) mySysBase;
 	IExec = (PTR) mySysBase->MainInterface;
 
 	MYDEBUG( "Resource : _manager_Init" );
 
 	// Make sure we havent been started before
-	resBase	= (PTR) FindName( & mySysBase->ResourceList, RESNAME );
+	resBase = (PTR) FindName( & mySysBase->ResourceList, RESNAME );
 	
 	if ( resBase )
 	{

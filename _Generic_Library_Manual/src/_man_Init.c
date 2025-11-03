@@ -22,14 +22,15 @@ PTR _manager_Init( PTR Dummy UNUSED, PTR SegList, struct ExecBase *mySysBase )
 {
 struct LibBase *libBase;
 
-	libBase	= NULL;
 	SysBase = (PTR) mySysBase;
 	IExec = (PTR) mySysBase->MainInterface;
 
 	MYDEBUG( "Library : _manager_Init" );
 
 	// Make sure we havent started
-	if ( FindName( & mySysBase->LibList, LIBNAME ))
+	libBase = (PTR) FindName( & mySysBase->LibList, LIBNAME );
+
+	if ( libBase )
 	{
 		MYERROR( "_manager_Init : Library allready loaded" );
 		goto bailout;
@@ -87,7 +88,7 @@ struct LibBase *libBase;
 
 bailout:
 
-	return( NULL );
+	return( libBase );
 }
 
 // --

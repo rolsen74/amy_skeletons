@@ -22,14 +22,15 @@ PTR _manager_Init( PTR Dummy UNUSED, PTR SegList, struct ExecBase *mySysBase )
 {
 struct BlankerBase *libBase;
 
-	libBase	= NULL;
 	SysBase = (PTR) mySysBase;
 	IExec = (PTR) mySysBase->MainInterface;
 
 	MYDEBUG( "Blanker : _manager_Init" );
 
 	// Make sure we havent started
-	if ( FindName( & mySysBase->DeviceList, LIBNAME ))
+	libBase = (PTR) FindName( & mySysBase->DeviceList, LIBNAME );
+
+	if ( libBase )
 	{
 		MYERROR( "_manager_Init : Library allready loaded" );
 		goto bailout;
@@ -87,7 +88,7 @@ struct BlankerBase *libBase;
 
 bailout:
 
-	return( NULL );
+	return( libBase );
 }
 
 // --

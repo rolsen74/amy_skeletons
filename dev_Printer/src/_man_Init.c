@@ -22,14 +22,15 @@ PTR _manager_Init( PTR Dummy UNUSED, PTR SegList, struct ExecBase *mySysBase )
 {
 struct PrinterBase *devBase;
 
-	devBase	= NULL;
 	SysBase = (PTR) mySysBase;
 	IExec = (PTR) mySysBase->MainInterface;
 
 	MYDEBUG( "Printer : _manager_Init" );
 
 	// Make sure we havent started
-	if ( FindName( & mySysBase->DeviceList, DEVNAME ))
+	devBase = (PTR) FindName( & mySysBase->DeviceList, DEVNAME );
+
+	if ( devBase )
 	{
 		MYERROR( "_manager_Init : Device allready loaded" );
 		goto bailout;
@@ -87,7 +88,7 @@ struct PrinterBase *devBase;
 
 bailout:
 
-	return( NULL );
+	return( devBase );
 }
 
 // --
