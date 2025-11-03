@@ -22,6 +22,7 @@ CFLAGS		:= -O2
 CFLAGS		+= -I.
 CFLAGS		+= -W
 CFLAGS		+= -Wall
+CFLAGS		+= -Wl,--cref,-M,-Map=$(TARGET).map
 CFLAGS		+= -D__USE_INLINE__
 
 # Create .d files (optinal)
@@ -156,7 +157,7 @@ all: $(BINDIR)/$(TARGET)
 ###############################################################################
 
 $(BINDIR)/$(TARGET): $(OBJS) | $(BINDIR)
-	$(CC) $(LDFLAGS) -o $(BINDIR)/$(TARGET) $(OBJS) $(LIBS) -Wl,--cref,-M,-Map=$(TARGET).map
+	$(CC) $(LDFLAGS) -o $(BINDIR)/$(TARGET) $(OBJS) $(LIBS)
 
 $(BINDIR):
 	$(MKDIR) $(BINDIR)
@@ -169,7 +170,7 @@ $(BINDIR):
 ###############################################################################
 
 clean:
-	$(RM) $(OBJS) $(DEPS) $(BINDIR)/$(TARGET) $(TARGET).map
+	$(RM) $(OBJDIR) $(DEPS) $(BINDIR)/$(TARGET) $(TARGET).map
 
 ###############################################################################
 
