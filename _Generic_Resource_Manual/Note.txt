@@ -1,0 +1,13 @@
+
+
+Note:
+
+	Resources on Amiga do not have a standard structure,
+	other than it have to start with a 'struct Node'.
+
+	Calling OpenResource( <Name> ), will not load from disk
+	it only check SysBase->ResourceList for LN_Name.
+
+	So a few uses the trick too define a Library, the structure
+	also start with a Node plus we can now use LoadLibrary(), too
+	load/start our resource code.

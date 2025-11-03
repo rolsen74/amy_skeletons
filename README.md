@@ -8,6 +8,7 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 - **Autoinit** — Automatically added by the system
 - **Library** — Builds an Amiga library
 - **Device** — Builds an Amiga device
+- **Resource** — Builds an Amiga resource
 
 **Notes:**
 1. Include files are manually created because `bumprev`/`idltool` are Amiga-only tools, and they add a Hyperion copyright
@@ -33,6 +34,9 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 - `_Generic_Device_Manual_Main_68k`
 - `_Generic_Device_Autoinit`
 - `_Generic_Device_Autoinit_68k`
+
+## ⚙️ Generic Resource
+- `_Generic_Resource_Manual`
 
 ## 💾 Example Libraries
 - `lib_Blanker` — Example blanker library
