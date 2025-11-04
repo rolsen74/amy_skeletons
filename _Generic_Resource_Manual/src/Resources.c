@@ -76,7 +76,7 @@ struct OpenStruct
 
 #define OS_LIB_NAME		os_STR
 #define OS_LIB_VERS		os_VAL
-#define OS_LIB_BASE		os_PTR2
+#define OS_LIB_BASE		os_PTR1
 
 #define OS_IFC_NAME		os_STR
 #define OS_IFC_VERS		os_VAL
@@ -93,41 +93,41 @@ struct OpenStruct
 static struct OpenStruct OpenList[] =
 {
 	// -- First Newlib
-	{ OT_Library,		"newlib.library",			50,			NULL,				& NewlibBase },
-	{ OT_Interface,		"main",						1,			& NewlibBase,		& INewlib },
+	{ OT_Library,		"newlib.library",			50,		& NewlibBase,		NULL },
+	{ OT_Interface,		"main",						1,		& NewlibBase,		& INewlib },
 
 	// -- Libraries
-//	{ OT_Library,		"application.library",		50,			NULL,				& ApplicationBase },
-//	{ OT_Library,		"asl.library",				50,			NULL,				& AslBase },
-//	{ OT_Library,		"cybergraphics.library",	42,			NULL,				& CyberGfxBase },
-//	{ OT_Library,		"dos.library",				50,			NULL,				& DOSBase },
-//	{ OT_Library,		"graphics.library",			50,			NULL,				& GfxBase },
-	{ OT_Library,		"intuition.library",		50,			NULL,				& IntuitionBase },
-//	{ OT_Library,		"Picasso96API.library",		50,			NULL,				& P96Base },
-//	{ OT_Library,		"utility.library",			50,			NULL,				& UtilityBase },
-//	{ OT_Library,		"layers.library",			50,			NULL,				& LayersBase },
+//	{ OT_Library,		"application.library",		50,		& ApplicationBase,	NULL },
+//	{ OT_Library,		"asl.library",				50,		& AslBase,			NULL },
+//	{ OT_Library,		"cybergraphics.library",	42,		& CyberGfxBase,		NULL },
+//	{ OT_Library,		"dos.library",				50,		& DOSBase,			NULL },
+//	{ OT_Library,		"graphics.library",			50,		& GfxBase,			NULL },
+	{ OT_Library,		"intuition.library",		50,		& IntuitionBase,	NULL },
+//	{ OT_Library,		"Picasso96API.library",		50,		& P96Base,			NULL },
+	{ OT_Library,		"utility.library",			50,		& UtilityBase,		NULL },
+//	{ OT_Library,		"layers.library",			50,		& LayersBase,		NULL },
 
 	// -- Interfaces
-//	{ OT_Interface,		"application",				2,			& ApplicationBase,	& IApplication },
-//	{ OT_Interface,		"prefsobjects",				2,			& ApplicationBase,	& IPrefsObjects },
-//	{ OT_Interface,		"main",						1,			& AslBase,			& IAsl },
-//	{ OT_Interface,		"main",						1,			& CyberGfxBase,		& ICyberGfx },
-//	{ OT_Interface,		"main",						1,			& DOSBase,			& IDOS },
-//	{ OT_Interface,		"main",						1,			& GfxBase,			& IGraphics },
-	{ OT_Interface,		"main",						1,			& IntuitionBase,	& IIntuition },
-//	{ OT_Interface,		"main",						1,			& P96Base,			& IP96 },
-//	{ OT_Interface,		"main",						1,			& UtilityBase,		& IUtility },
-//	{ OT_Interface,		"main",						1,			& LayersBase,		& ILayers },
+//	{ OT_Interface,		"application",				2,		& ApplicationBase,	& IApplication },
+//	{ OT_Interface,		"prefsobjects",				2,		& ApplicationBase,	& IPrefsObjects },
+//	{ OT_Interface,		"main",						1,		& AslBase,			& IAsl },
+//	{ OT_Interface,		"main",						1,		& CyberGfxBase,		& ICyberGfx },
+//	{ OT_Interface,		"main",						1,		& DOSBase,			& IDOS },
+//	{ OT_Interface,		"main",						1,		& GfxBase,			& IGraphics },
+	{ OT_Interface,		"main",						1,		& IntuitionBase,	& IIntuition },
+//	{ OT_Interface,		"main",						1,		& P96Base,			& IP96 },
+	{ OT_Interface,		"main",						1,		& UtilityBase,		& IUtility },
+//	{ OT_Interface,		"main",						1,		& LayersBase,		& ILayers },
 
 	// -- Note: Intuition must be opened before OT classes
-//	{ OT_Class,			"gadgets/button.gadget",	50,			& ButtonBase,		& ButtonClass },
-//	{ OT_Class,			"gadgets/chooser.gadget",	50,			& ChooserBase,		& ChooserClass },
-//	{ OT_Class,			"gadgets/layout.gadget",	50,			& LayoutBase,		& LayoutClass },
-//	{ OT_Class,			"gadgets/slider.gadget",	50,			& SliderBase,		& SliderClass },
-//	{ OT_Class,			"gadgets/space.gadget",		50,			& SpaceBase,		& SpaceClass },
-//	{ OT_Class,			"images/label.image",		50,			& LabelBase,		& LabelClass },
+//	{ OT_Class,			"gadgets/button.gadget",	50,		& ButtonBase,		& ButtonClass },
+//	{ OT_Class,			"gadgets/chooser.gadget",	50,		& ChooserBase,		& ChooserClass },
+//	{ OT_Class,			"gadgets/layout.gadget",	50,		& LayoutBase,		& LayoutClass },
+//	{ OT_Class,			"gadgets/slider.gadget",	50,		& SliderBase,		& SliderClass },
+//	{ OT_Class,			"gadgets/space.gadget",		50,		& SpaceBase,		& SpaceClass },
+//	{ OT_Class,			"images/label.image",		50,		& LabelBase,		& LabelClass },
 
-	{ OT_End,			NULL,						0,			NULL,				NULL },
+	{ OT_End,			NULL,						0,		NULL,				NULL },
 };
 
 // --
