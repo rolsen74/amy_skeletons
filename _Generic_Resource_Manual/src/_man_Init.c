@@ -52,7 +52,7 @@ struct Real_ResourceBase *resBase;
 	}
 
 	resBase->res_Public.res_Base.lib_Node.ln_Type	= NT_RESOURCE;
-	resBase->res_Public.res_Base.lib_Node.ln_Pri	= 0;
+	resBase->res_Public.res_Base.lib_Node.ln_Pri	= RESPRI;
 	resBase->res_Public.res_Base.lib_Node.ln_Name	= RESNAME;
 	resBase->res_Public.res_Base.lib_Flags			= LIBF_SUMUSED|LIBF_CHANGED;
 	resBase->res_Public.res_Base.lib_Version		= VERSION;

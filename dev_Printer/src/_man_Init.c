@@ -52,7 +52,7 @@ struct PrinterBase *devBase;
 	}
 
 	devBase->dev_Base.dd_Library.lib_Node.ln_Type	= NT_DEVICE;
-	devBase->dev_Base.dd_Library.lib_Node.ln_Pri	= 0;
+	devBase->dev_Base.dd_Library.lib_Node.ln_Pri	= DEVPRI;
 	devBase->dev_Base.dd_Library.lib_Node.ln_Name	= DEVNAME;
 	devBase->dev_Base.dd_Library.lib_Flags			= LIBF_SUMUSED|LIBF_CHANGED;
 	devBase->dev_Base.dd_Library.lib_Version		= VERSION;

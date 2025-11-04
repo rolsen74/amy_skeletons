@@ -79,7 +79,7 @@ static USED const struct Resident res_res =
 /* rt_Flags		*/			RTF_NATIVE|RTF_COLDSTART,
 /* rt_Version	*/			VERSION,
 /* rt_Type		*/			NT_RESOURCE,
-/* rt_Pri		*/			0,
+/* rt_Pri		*/			RESPRI,
 /* rt_Name		*/ (STR)	RESNAME,
 /* rt_IdString	*/ (STR)	VSTRING,
 /* rt_Init		*/ (PTR)	_manager_Init

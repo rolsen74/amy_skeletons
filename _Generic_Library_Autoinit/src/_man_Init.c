@@ -29,7 +29,7 @@ struct LibBase *retval;
 	MYDEBUG( "Library : _manager_Init : libBase %p : SegList %p : myIExec %p : SysBase %p :", libBase, SegList, myIExec, SysBase );
 
 	libBase->lib_Base.lib_Node.ln_Type	= NT_LIBRARY;
-	libBase->lib_Base.lib_Node.ln_Pri	= 0;
+	libBase->lib_Base.lib_Node.ln_Pri	= LIBPRI;
 	libBase->lib_Base.lib_Node.ln_Name	= LIBNAME;
 	libBase->lib_Base.lib_Flags			= LIBF_SUMUSED|LIBF_CHANGED;
 	libBase->lib_Base.lib_Version		= VERSION;
