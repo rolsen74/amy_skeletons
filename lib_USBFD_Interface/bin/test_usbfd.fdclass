@@ -1,0 +1,7 @@
+FUNCTIONDRIVER
+NAME		"Test Interface Driver"
+CLASS		0x03
+SUBCLASS	0x01
+TYPE		INTERFACE
+PRI		1
+DRIVER		"test_usbfd.usbfd"
