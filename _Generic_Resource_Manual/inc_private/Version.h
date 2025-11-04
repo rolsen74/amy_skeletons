@@ -16,10 +16,11 @@
 
 // --
 
+#define RESPRI		0
 #define RESNAME		"test_resource.resource"
 #define VERSION		1
 #define REVISION	1
-#define DATE		"29.10.2025"
+#define DATE		"29.10.2025"		// dd.mm.yyyy
 #define VERS		RESNAME " 1.1"
 #define VSTRING		RESNAME " 1.1 (" DATE ")\r\n"
 #define VERSTAG		"\0$VER: " RESNAME " 1.1 (" DATE ")"

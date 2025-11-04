@@ -16,10 +16,11 @@
 
 // --
 
+#define DEVPRI		0
 #define DEVNAME		"test_printer.device"
 #define VERSION		1
 #define REVISION	1
-#define DATE		"18.9.2025"
+#define DATE		"18.9.2025"		// dd.mm.yyyy
 #define VERS		DEVNAME " 1.1"
 #define VSTRING		DEVNAME " 1.1 (" DATE ")\r\n"
 #define VERSTAG		"\0$VER: " DEVNAME " 1.1 (" DATE ")"
