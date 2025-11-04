@@ -55,9 +55,10 @@ dkms.conf
 *.dwo
 
 # Amiga Binary files
-*.device
-*.library
-*.docky
-*.blanker
-*.gadget
 *.resource
+*.blanker
+*.library
+*.device
+*.gadget
+*.docky
+*.usbfd
