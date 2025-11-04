@@ -42,6 +42,7 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 - `lib_Blanker` — Example blanker library
 - `lib_Docky` — Example AmiDock docky
 - `lib_Gadget` — Example gadget class library
+- `lib_USBFD_Interface` — Example Function Driver for Sirion USB Stack
 
 ## 🖨️ Example Devices
 - `dev_Printer` — Example printer device (Parallel.dev)
