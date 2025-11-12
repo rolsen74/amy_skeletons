@@ -46,7 +46,7 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 
 ## 🖨️ Example Devices
 - `dev_Printer` — Example printer device (Parallel.dev)
-- `dev_SANA2` — Example Ethernet device
+- `dev_Sana2` — Example Ethernet device
 - `dev_Trackdisk` — Example disk device
 
 ---
