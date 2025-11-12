@@ -1,0 +1,9 @@
+
+
+Note:
+
+	Add your hardware init in Process_Init()
+
+	Maybe setup an interrupt handler handling signals
+	than can signal unit_Rx_SignalBit and unit_Tx_SignalBit
+	when jobs have been executed.
