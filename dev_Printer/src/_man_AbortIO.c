@@ -23,7 +23,7 @@ struct PrinterUnit *unit;
 	switch( ioreq->io_Command )
 	{
 		case /* 0002 */ CMD_READ:
-		case /* 0002 */ CMD_WRITE:
+		case /* 0003 */ CMD_WRITE:
 		{
 			// Only Read and Write, are queued
 			msg = AllocVecTags( sizeof( struct AbortIOMessage ), AVT_Clear, 0, TAG_END );
