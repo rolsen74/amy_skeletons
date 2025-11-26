@@ -95,13 +95,13 @@ static struct OpenStruct OpenList[] =
 	{ OT_Interface,		"main",						1,		& NewlibBase,		& INewlib },
 
 	// -- Libraries
-	{ OT_Library,		"application.library",		50,		& ApplicationBase	NULL },
-	{ OT_Library,		"asl.library",				50,		& AslBase			NULL },
-	{ OT_Library,		"cybergraphics.library",	42,		& CyberGfxBase		NULL },
-	{ OT_Library,		"dos.library",				50,		& DOSBase			NULL },
-	{ OT_Library,		"graphics.library",			50,		& GfxBase			NULL },
-	{ OT_Library,		"intuition.library",		50,		& IntuitionBase		NULL },
-	{ OT_Library,		"Picasso96API.library",		50,		& P96Base			NULL },
+	{ OT_Library,		"application.library",		50,		& ApplicationBase,	NULL },
+	{ OT_Library,		"asl.library",				50,		& AslBase,			NULL },
+	{ OT_Library,		"cybergraphics.library",	42,		& CyberGfxBase,		NULL },
+	{ OT_Library,		"dos.library",				50,		& DOSBase,			NULL },
+	{ OT_Library,		"graphics.library",			50,		& GfxBase,			NULL },
+	{ OT_Library,		"intuition.library",		50,		& IntuitionBase,	NULL },
+	{ OT_Library,		"Picasso96API.library",		50,		& P96Base,			NULL },
 	{ OT_Library,		"utility.library",			50,		& UtilityBase,		NULL },
 
 	// -- Interfaces

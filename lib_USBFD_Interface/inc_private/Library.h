@@ -26,4 +26,11 @@ struct LibBase
 
 // --
 
+struct LibData
+{
+	int		Dummy;
+};
+
+// --
+
 #endif

@@ -46,10 +46,11 @@ static const PTR _main_Vectors[] =
 
 static const struct TagItem _main_Tags[] =
 {
-	{ MIT_Name,			(U32) "main"		},
-	{ MIT_VectorTable,	(U32) _main_Vectors	},
-	{ MIT_Version,		(U32) 1				},
-	{ TAG_END,			(U32) 0				}
+	{ MIT_Name,			(Tag) "main"		},
+	{ MIT_VectorTable,	(Tag) _main_Vectors	},
+	{ MIT_DataSize,		(Tag) sizeof( struct ResData ) },
+	{ MIT_Version,		(Tag) 1				},
+	{ TAG_END,			(Tag) 0				}
 };
 
 // --

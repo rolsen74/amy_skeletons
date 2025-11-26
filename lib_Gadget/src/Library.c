@@ -48,6 +48,7 @@ static const struct TagItem _main_Tags[] =
 {
 	{ MIT_Name,			(Tag) "main"		},
 	{ MIT_VectorTable,	(Tag) _main_Vectors	},
+	{ MIT_DataSize,		(Tag) sizeof( struct LibData ) },
 	{ MIT_Version,		(Tag) 1				},
 	{ TAG_END,			(Tag) 0				}
 };

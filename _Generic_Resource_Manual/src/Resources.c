@@ -27,7 +27,7 @@ struct Library *				NewlibBase			= NULL;
 // struct Library * 			SliderBase			= NULL;
 // struct Library *				SpaceBase			= NULL;
 struct Library *				SysBase				= NULL;
-// struct Library *				UtilityBase			= NULL;
+struct Library *				UtilityBase			= NULL;
 // struct Library *				P96Base				= NULL;
 
 // Class *						ButtonClass			= NULL;
@@ -50,7 +50,7 @@ struct Interface *				INewlib				= NULL;
 // struct LayersIFace *			ILayers				= NULL;
 // struct SliderIFace *			ISlider				= NULL;
 // struct SpaceIFace *			ISpace				= NULL;
-// struct UtilityIFace *		IUtility			= NULL;
+struct UtilityIFace *			IUtility			= NULL;
 // struct P96IFace *			IP96				= NULL;
 // struct PrefsObjectsIFace *	IPrefsObjects 		= NULL;
 
