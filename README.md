@@ -29,11 +29,9 @@ Skeleton templates for creating AmigaOS4 libraries and devices.
 
 ## ⚙️ Generic Devices
 - `_Generic_Device_Manual`
-- `_Generic_Device_Manual_68k`
 - `_Generic_Device_Manual_Main`
 - `_Generic_Device_Manual_Main_68k`
 - `_Generic_Device_Autoinit`
-- `_Generic_Device_Autoinit_68k`
 
 ## ⚙️ Generic Resource
 - `_Generic_Resource_Manual`
