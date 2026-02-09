@@ -143,7 +143,7 @@ S32 retval;
 S32 pos;
 PTR ptr;
 
-	MYERROR( "DEV : myOpenResources" );
+	MYERROR( "Device : myOpenResources" );
 
 	retval = FALSE;
 
@@ -162,7 +162,7 @@ PTR ptr;
 
 				if ( ! base )
 				{
-					MYERROR( "DEV : Error missing base pointer" );
+					MYERROR( "Device : Error missing base pointer" );
 					goto bailout;
 				}
 
@@ -171,13 +171,13 @@ PTR ptr;
 					STR name = OpenList[pos].OS_LIB_NAME;
 					U32 vers = OpenList[pos].OS_LIB_VERS;
 
-					MYINFO( "DEV : Opening library '%s' v%lu", name, vers );
+					MYINFO( "Device : Opening library '%s' v%lu", name, vers );
 
 					ptr = OpenLibrary( name, vers );
 
 					if ( ! ptr )
 					{
-						MYERROR( "DEV : Error opening library '%s' v%lu", name, vers );
+						MYERROR( "Device : Error opening library '%s' v%lu", name, vers );
 						goto bailout;
 					}
 
@@ -192,7 +192,7 @@ PTR ptr;
 
 				if ( ! ifc )
 				{
-					MYERROR( "DEV : Error missing interface pointer" );
+					MYERROR( "Device : Error missing interface pointer" );
 					goto bailout;
 				}
 
@@ -202,13 +202,13 @@ PTR ptr;
 					STR name = OpenList[pos].OS_IFC_NAME;
 					U32 vers = OpenList[pos].OS_IFC_VERS;
 
-					MYINFO( "DEV : Getting interface pos #%lu", pos );
+					MYINFO( "Device : Getting interface pos #%lu", pos );
 
 					ptr = GetInterface( *base, name, vers, NULL );
 
 					if ( ! ptr )
 					{
-						MYERROR( "DEV : Error getting interface pos #%lu", pos );
+						MYERROR( "Device : Error getting interface pos #%lu", pos );
 						goto bailout;
 					}
 
@@ -223,7 +223,7 @@ PTR ptr;
 
 				if ( ! base )
 				{
-					MYERROR( "DEV : Error missing class pointer" );
+					MYERROR( "Device : Error missing class pointer" );
 					goto bailout;
 				}
 
@@ -232,7 +232,7 @@ PTR ptr;
 					// Make sure you have opened Intuition first
 					if ( ! IIntuition )
 					{
-						MYERROR( "DEV : Error need Intuition" );
+						MYERROR( "Device : Error need Intuition" );
 						goto bailout;
 					}
 
@@ -240,13 +240,13 @@ PTR ptr;
 					STR name = OpenList[pos].OS_CLS_NAME;
 					U32 vers = OpenList[pos].OS_CLS_VERS;
 
-					MYINFO( "DEV : Opening class '%s'", name );
+					MYINFO( "Device : Opening class '%s'", name );
 
 					ptr = OpenClass( name, vers, cls );
 
 					if ( ! ptr )
 					{
-						MYERROR( "DEV : Error opening class '%s' pos #%lu", name, pos );
+						MYERROR( "Device : Error opening class '%s' pos #%lu", name, pos );
 						goto bailout;
 					}
 
@@ -257,7 +257,7 @@ PTR ptr;
 
 			default:
 			{
-				MYERROR( "DEV : Unknown Resource type (%lu)", OpenList[pos].os_Type );
+				MYERROR( "Device : Unknown Resource type (%lu)", OpenList[pos].os_Type );
 				goto bailout;
 			}
 		}
@@ -276,7 +276,7 @@ void myCloseResources( void )
 {
 S32 pos;
 
-	MYERROR( "DEV : myCloseResources" );
+	MYERROR( "Device : myCloseResources" );
 
 	// -- Find End of List
 	for( pos=0 ; TRUE ; pos++ )
@@ -293,7 +293,7 @@ S32 pos;
 	while( pos > 2 )
 	{
 		pos--;
-		MYERROR( "DEV : Processing : %s", OpenList[pos].os_STR );
+		MYERROR( "Device : Processing : %s", OpenList[pos].os_STR );
 
 		switch( OpenList[pos].os_Type )
 		{

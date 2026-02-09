@@ -18,7 +18,7 @@ S32 Resources_Init( struct DEVBase *devBase UNUSED )
 {
 S32 retval;
 
-	MYDEBUG( "DEV : Resources_Init" );
+	MYDEBUG( "Device : Resources_Init" );
 
 	retval = FALSE;
 

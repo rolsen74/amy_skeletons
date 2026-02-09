@@ -13,7 +13,7 @@
 
 void Unit_Free( struct DEVUnit *unit )
 {
-	MYDEBUG( "DEV : Unit_Free :" );
+	MYDEBUG( "Device : Unit_Free :" );
 
 	if ( ! unit )
 	{

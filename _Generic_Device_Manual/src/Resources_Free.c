@@ -16,7 +16,7 @@ extern struct Library *NewlibBase;
 
 void Resources_Free( struct DEVBase *devBase UNUSED )
 {
-	MYDEBUG( "DEV : Resources_Free" );
+	MYDEBUG( "Device : Resources_Free" );
 
 	// --
 	// Free Resources last

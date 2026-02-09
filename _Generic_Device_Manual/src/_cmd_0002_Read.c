@@ -13,7 +13,7 @@
 
 void _cmd_0002_Read( struct DEVUnit *unit UNUSED, struct IORequest *ioreq )
 {
-	MYDEBUG( "DEV : _cmd_0002_Read" );
+	MYDEBUG( "Device : _cmd_0002_Read" );
 
 	ioreq->io_Error = 0;
 	ReplyMsg( (PTR) ioreq );

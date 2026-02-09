@@ -16,7 +16,7 @@ void Process_Main( struct DEVUnit *unit )
 U32 wait;
 U32 mask;
 
-	MYERROR( "DEV : Process_Main : Enter" );
+	MYERROR( "Device : Process_Main : Enter" );
 
 	wait = SIGBREAKF_CTRL_C;
 	wait |= unit->unit_Begin_MsgPortBit;
@@ -54,7 +54,7 @@ U32 mask;
 
 	unit->unit_StartupComplete = FALSE;
 
-	MYERROR( "DEV : __myProcess_Main : Leave" );
+	MYERROR( "Device : __myProcess_Main : Leave" );
 }
 
 // --

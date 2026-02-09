@@ -25,7 +25,7 @@ struct DEVBase *devBase;
 	SysBase = (PTR) mySysBase;
 	IExec = (PTR) mySysBase->MainInterface;
 
-	MYDEBUG( "DEV : _manager_Init" );
+	MYDEBUG( "Device : _manager_Init" );
 
 	// Make sure we havent started
 	devBase = (PTR) FindName( & mySysBase->DeviceList, DEVNAME );
@@ -68,17 +68,17 @@ struct DEVBase *devBase;
 
 	if ( Resources_Init( devBase ))
 	{
-		MYDEBUG( "DEV : Opening Resources...  Success" );
+		MYDEBUG( "Device : Opening Resources...  Success" );
 
 		/* Make it public */
 		AddDevice( (PTR) devBase );
 
 		/* Optional: small startup message */
-		DebugPrintF( "DEV : Rock'n Roll\n" );
+		DebugPrintF( "Device : Rock'n Roll\n" );
 	}
 	else
 	{
-		MYERROR( "DEV : Opening Resources...  Failed" );
+		MYERROR( "Device : Opening Resources...  Failed" );
 
 		Resources_Free( devBase );
 

@@ -16,7 +16,7 @@ PTR _manager_Expunge( struct DeviceManagerInterface *Self )
 struct DEVBase *devBase;
 PTR seglist;
 
-	MYDEBUG( "DEV : _manager_Expunge" );
+	MYDEBUG( "Device : _manager_Expunge" );
 
 	devBase = (PTR) Self->Data.LibBase;
 

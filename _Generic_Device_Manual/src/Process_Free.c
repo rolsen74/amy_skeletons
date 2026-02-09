@@ -16,13 +16,13 @@ void Process_Free( struct DEVUnit *unit )
 struct AbortIOMessage *msg;
 struct IORequest *ioreq;
 
-	MYERROR( "DEV : Process_Free" );
+	MYERROR( "Device : Process_Free" );
 
 	// --
 
 	if ( unit->unit_Abort_MsgPort )
 	{
-		MYINFO( "DEV : Clearing Abort MsgPort" );
+		MYINFO( "Device : Clearing Abort MsgPort" );
 
 		while( TRUE )
 		{
@@ -45,7 +45,7 @@ struct IORequest *ioreq;
 
 	if ( unit->unit_Begin_MsgPort )
 	{
-		MYINFO( "DEV : Clearing Begin MsgPort" );
+		MYINFO( "Device : Clearing Begin MsgPort" );
 
 		while( TRUE )
 		{
@@ -56,7 +56,7 @@ struct IORequest *ioreq;
 				break;
 			}
 
-			MYINFO( "DEV : Aborting IOReq %p", ioreq );
+			MYINFO( "Device : Aborting IOReq %p", ioreq );
 			ioreq->io_Error = IOERR_ABORTED;
 			ReplyMsg( (PTR) ioreq );
 		}

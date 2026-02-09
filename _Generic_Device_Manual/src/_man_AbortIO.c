@@ -16,7 +16,7 @@ void _manager_AbortIO( struct DeviceManagerInterface *Self UNUSED, struct IORequ
 struct AbortIOMessage *msg;
 struct DEVUnit *unit;
 
-	MYDEBUG( "DEV : _manager_AbortIO : IOReq %p", ioreq );
+	MYDEBUG( "Device : _manager_AbortIO : IOReq %p", ioreq );
 
 	unit = (PTR) ioreq->io_Unit;
 

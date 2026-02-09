@@ -22,11 +22,11 @@ S32 sig;
 
 	if ( ! unit )
 	{
-		MYERROR( "DEV : Unit_Startup : NULL Pointer" );
+		MYERROR( "Device : Unit_Startup : NULL Pointer" );
 		goto bailout;
 	}
 
-	MYDEBUG( "DEV : Unit_Startup : UnitNr #%lu", unit->unit_UnitNr );
+	MYDEBUG( "Device : Unit_Startup : UnitNr #%lu", unit->unit_UnitNr );
 
 	// --
 	// Try and alloc signal
@@ -67,7 +67,7 @@ S32 sig;
 
 	if ( ! msg.Result )
 	{
-		MYERROR( "DEV : Failed to DEV process" );
+		MYERROR( "Device : Failed to DEV process" );
 		goto bailout;
 	}
 
@@ -80,7 +80,7 @@ S32 sig;
 
 bailout:
 
-	MYDEBUG( "DEV : Unit_Startup : Leave" );
+	MYDEBUG( "Device : Unit_Startup : Leave" );
 
 	return( retval );
 }

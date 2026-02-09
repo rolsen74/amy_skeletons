@@ -27,7 +27,7 @@ struct DEVBase *devBase;
 struct DEVUnit *unit;
 S32 error;
 
-	MYDEBUG( "DEV : _manager_Open" );
+	MYDEBUG( "Device : _manager_Open" );
 
 	error = 0;
 
@@ -41,7 +41,7 @@ S32 error;
 	/* Check request size */
 	if ( ioreq->io_Message.mn_Length < sizeof( struct IORequest ))
 	{
-		MYERROR( "DEV : Invalid request size : Size %lu", (U32) ioreq->io_Message.mn_Length );
+		MYERROR( "Device : Invalid request size : Size %lu", (U32) ioreq->io_Message.mn_Length );
 		error = IOERR_OPENFAIL;
 		goto bailout;
 	}
@@ -49,7 +49,7 @@ S32 error;
 	/* Check for valid Unit number */
 	if ( unitnum >= MAX_DEV_UNITS )
 	{
-		MYERROR( "DEV : Invalid unit number : Unit nr #%lu", unitnum );
+		MYERROR( "Device : Invalid unit number : Unit nr #%lu", unitnum );
 		error = IOERR_OPENFAIL;
 		goto bailout;
 	}
@@ -57,7 +57,7 @@ S32 error;
 	/* Only one opener pr. unit, check if its in use */
 	if ( devBase->dev_DEV_Units[ unitnum ] )
 	{
-		MYERROR( "DEV : Unit alreay in use : Unit nr #%lu", unitnum );
+		MYERROR( "Device : Unit alreay in use : Unit nr #%lu", unitnum );
 		error = IOERR_OPENFAIL;
 		goto bailout;
 	}
@@ -67,7 +67,7 @@ S32 error;
 
 	if ( ! unit )
 	{
-		MYERROR( "DEV : Error creating Unit" );
+		MYERROR( "Device : Error creating Unit" );
 		error = IOERR_OPENFAIL;
 		goto bailout;
 	}

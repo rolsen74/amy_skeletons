@@ -17,7 +17,7 @@ S32 retval;
 
 	retval = FALSE;
 
-	MYDEBUG( "DEV : Process_Init" );
+	MYDEBUG( "Device : Process_Init" );
 
 	// --
 	unit->unit_Begin_MsgPort	= AllocSysObjectTags( ASOT_PORT, TAG_END );
@@ -26,7 +26,7 @@ S32 retval;
 	if (( ! unit->unit_Begin_MsgPort )
 	||	( ! unit->unit_Abort_MsgPort ))
 	{
-		MYERROR( "DEV : Process_Init : Error creating objects" );
+		MYERROR( "Device : Process_Init : Error creating objects" );
 		goto bailout;
 	}
 

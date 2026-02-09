@@ -17,7 +17,7 @@ struct DEVBase *devBase;
 struct DEVUnit *unit;
 PTR seglist;
 
-	MYDEBUG( "DEV : _manager_Close : IOReq %p", ioreq );
+	MYDEBUG( "Device : _manager_Close : IOReq %p", ioreq );
 
 	seglist = NULL;
 
@@ -30,7 +30,7 @@ PTR seglist;
 
 	if ( ! unit )
 	{
-		MYERROR( "DEV : Unit NULL Pointer" );
+		MYERROR( "Device : Unit NULL Pointer" );
 		goto bailout;
 	}
 
@@ -43,7 +43,7 @@ PTR seglist;
 	if ( unit->unit_Unit.unit_OpenCnt )
 	{
 		// Hmm since we only have one Opener pr unit.. this is an error
-		MYERROR( "DEV : Unit open count not Zero : OpenCnt %ld", unit->unit_Unit.unit_OpenCnt );
+		MYERROR( "Device : Unit open count not Zero : OpenCnt %ld", unit->unit_Unit.unit_OpenCnt );
 		goto bailout;
 	}
 

@@ -16,7 +16,7 @@ struct DEVUnit *Unit_Alloc( U32 unitnr )
 struct DEVUnit *unit;
 S32 error;
 
-	MYDEBUG( "DEV : Unit_Alloc" );
+	MYDEBUG( "Device : Unit_Alloc" );
 
 	error = TRUE;
 
@@ -27,7 +27,7 @@ S32 error;
 
 	if ( ! unit )
 	{
-		MYERROR( "DEV : Error allocating memory" );
+		MYERROR( "Device : Error allocating memory" );
 		goto bailout;
 	}
 
@@ -38,7 +38,7 @@ S32 error;
 
 	if ( ! unit->unit_TaskName )
 	{
-		MYERROR( "DEV : Error allocating memory" );
+		MYERROR( "Device : Error allocating memory" );
 		goto bailout;
 	}
 

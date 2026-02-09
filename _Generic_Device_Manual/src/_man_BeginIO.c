@@ -40,7 +40,7 @@ void _manager_BeginIO( struct DeviceManagerInterface *Self UNUSED, struct IORequ
 {
 struct DEVUnit *unit;
 
-//	MYDEBUG( "DEV : _manager_BeginIO : IOReq %p", ioreq );
+//	MYDEBUG( "Device : _manager_BeginIO : IOReq %p", ioreq );
 
 	// Disable QUICK IO - we do not support that
 	ioreq->io_Message.mn_Node.ln_Type = NT_MESSAGE;
@@ -84,7 +84,7 @@ struct DEVUnit *unit;
 		// Return unknown commands here
 		default:
 		{
-			MYDEBUG( "DEV : _manager_BeginIO : Unknown Cmd ($%04lx)", (U32) ioreq->io_Command );
+			MYDEBUG( "Device : _manager_BeginIO : Unknown Cmd ($%04lx)", (U32) ioreq->io_Command );
 
 			// Unknown Command
 			ioreq->io_Error = IOERR_NOCMD;

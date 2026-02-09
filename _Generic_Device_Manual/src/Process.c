@@ -20,7 +20,7 @@ struct Task *self;
 U32 mask;
 S32 stat;
 
-	MYERROR( "DEV : Process_Entry : Enter" );
+	MYERROR( "Device : Process_Entry : Enter" );
 
 	self	= FindTask( NULL );
 	msg		= (PTR) self->tc_UserData;
@@ -65,7 +65,7 @@ S32 stat;
 
 	unit->unit_TaskState = TASK_State_Stopped;
 
-	MYERROR( "DEV : Process_Entry : Leave" );
+	MYERROR( "Device : Process_Entry : Leave" );
 
 	// --
 	// Parent can be NULL
